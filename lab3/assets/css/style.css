@@ -43,102 +43,6 @@ video{
     margin: 0 auto;
 }
 
-/*HEADER--------------------------------------------------------------*/
-/*.header{
-	position: absolute;
-	width: 100%;
-	left: 0;
-	top: 0;
-	z-index:50;	
-}
-
-.header_container{
-	display: flex;
-	min-height: 104px;
-	align-items: center;
-}
-
-@media(max-width: 479px)
-{
-	.header_container{
-		min-height: 85px;
-	}	
-}
-
-.header_logo{
-	font-size: 24px;
-	font-weight: 700;
-	color: inherit;
-}
-
-.header_signin
-{
-    margin-left: 20px;
-    float: right;
-	margin-left: 30%;
-}
-
-.header_menu{
-	margin: 0px 0px 0px 133px;
-	padding: 5px 0px;
-}
-
-@media(max-width: 992px)
-{
-	.header_menu{
-		margin: 0px 0px 0px 80px;
-	}	
-}
-
-@media(max-width: 767px)
-{
-	.header_menu{
-		margin: 0px 0px 0px 60px;
-	}	
-}
-@media(max-width: 479px)
-{
-	.header_menu{
-		margin: 0px 0px 0px 20px;
-	}	
-}
-
-.menu_list{
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.menu_item{
-	margin: 0px 21px 0px 0px;
-}
-
-.menu_link{
-	color: #737373;
-	font-weight: 600;
-	line-height: calc(24/14*100%);
-
-
-    display: inline-block;
-	vertical-align: top;
-    position: relative;
-    transition:color 0.2s linear;
-}
-
-.menu_link.active{
-	color: #fce38a;	
-}
-
-.menu_link:hover{
-	color: #fce38a;	
-}
-
-@media(max-width: 479px)
-{
-	.menu_link{
-		font-size: 18px;
-	}	
-}*/
-
 /* Intro*/
 .intro{
 	display: flex;
@@ -616,13 +520,6 @@ option{
 
 /*animation*/
 *{box-sizing:border-box}
-/*body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}*/
 @keyframes loader {
   0% {transform:rotate(-45deg)}
   50%{transform:rotate(-135deg)}
