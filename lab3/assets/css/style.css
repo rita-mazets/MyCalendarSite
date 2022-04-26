@@ -21,6 +21,18 @@ h3{
 	text-align: center;
 }
 
+h3.text{
+	font-size: 30px;
+	font-family: 'Kaushan Script';
+	text-transform: none;
+}
+
+h4.text{
+	font-size: 20px;
+	font-family: 'Kaushan Script';
+	text-transform: none;
+}
+
 dl{
 	margin-top: 50px;
 }
@@ -250,6 +262,10 @@ main .article_container
 	margin-right: auto;
 }
 
+.sign_in pad{
+	padding-top: 5%;
+}
+
 .sign_in span {
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
@@ -409,11 +425,31 @@ option{
 	margin-right: auto;
 	font-size: 40px;
 }
+.calendar-button{
+	max-height: 15px;
+	background: white;
+	/*border: 1px solid white;*/
+	padding: 9px;
+	margin-right: 4px;
+	font-size: 0;
+}
 
+.calendar-button:hover{
+	background: rgb(175, 189, 234);
+}
+
+.calendar-button-active{
+	background: rgb(86, 102, 150);
+}
+
+.calendar-button-now{
+	background: #fcdf02;
+}
 .colendar-button{
 	width: 10px;
 	height: 15px;
 	background: white;
+	border: 1px solid white;
 	margin: 0;
 }
 
@@ -518,6 +554,11 @@ option{
 
 }
 
+.year{
+	top: 65px; 
+	color:white;
+}
+
 /*animation*/
 *{box-sizing:border-box}
 @keyframes loader {
@@ -565,4 +606,27 @@ option{
 }
 .loader span:nth-child(4) {
   animation: span-4 2s ease-in-out infinite;
+}
+
+div .margin-bot{
+	margin-bottom: 30px;
+	font-size: 30px;
+}
+
+.mt5{
+	margin-top: 5%;
+}
+
+.mr45{
+	margin-right: 45px;
+}
+
+.w30
+{
+	width: 30%;
+}
+
+.w40
+{
+	width: 40%;
 }
