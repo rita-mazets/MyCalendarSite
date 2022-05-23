@@ -1,68 +1,74 @@
-import {signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js"
-import AbstractView from "./AbstractView.js"
-import {getUser} from "../fdatabase.js"
-import { navigateTo } from "../index.js"
-import {auth} from "../firebase.js"
+import {
+  signInWithEmailAndPassword,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js";
+import AbstractView from "./AbstractView.js";
+import { getUser } from "../fdatabase.js";
+import { navigateTo } from "../index.js";
+import { auth } from "../firebase.js";
 
 export default class extends AbstractView {
-    constructor(params) {
-        super(params);
-        this.setTitle("Sing In");
-		this.changeActiveLink("singIn");
-    }
+  constructor(params) {
+    super(params);
+    this.setTitle("Sing In");
+    this.changeActiveLink("singIn");
+  }
 
-	async addHandlers(){
-		document.getElementById('sign-in').addEventListener('click', function(e){
-			e.preventDefault()
-			const email = document.getElementById('email').value;
-		const password = document.getElementById('password').value;
+  async addHandlers() {
+    document.getElementById("sign-in").addEventListener("click", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-		if((email=== null || !email.length) &&(password === null || !password.length)){
-			alert('Enter email and password!')
-			return
-		}
+      if (
+        (email === null || !email.length) &&
+        (password === null || !password.length)
+      ) {
+        alert("Enter email and password!");
+        return;
+      }
 
-		signInWithEmailAndPassword(auth, email, password)
-		.then(async () =>{
-			await getUser()
-			document.getElementById('mycalendar').classList.remove('disabled')		
+      signInWithEmailAndPassword(auth, email, password)
+        .then(async () => {
+          await getUser();
+          document.getElementById("mycalendar").classList.remove("disabled");
         })
-		.then(() => {
-			var sign = document.getElementById('header_signin')
-			var singIn = document.getElementById('singIn')
-			sign.removeChild(singIn)
-			var signOutA = document.createElement('a')
-			signOutA.classList.add('nav_link')
-			signOutA.classList.add('active')
-			signOutA.textContent = 'Sign Out'
-			signOutA.id = "signOut"
-			signOutA.href = '/singIn'
-			sign.insertAdjacentElement('afterbegin', signOutA)
+        .then(() => {
+          let sign = document.getElementById("header_signin");
+          let singIn = document.getElementById("singIn");
+          sign.removeChild(singIn);
+          let signOutA = document.createElement("a");
+          signOutA.classList.add("nav_link");
+          signOutA.classList.add("active");
+          signOutA.textContent = "Sign Out";
+          signOutA.id = "signOut";
+          signOutA.href = "/singIn";
+          sign.insertAdjacentElement("afterbegin", signOutA);
 
-			const signOutHandler = () => {
-				signOut(auth).then((e) => {
-				localStorage.clear()
-				console.log('Sign out:','Success')
-				localStorage.clear()
-			})              
-			.catch((error) => {
-				console.log("Sign out error:",error.message)
-			});
-			}
-			signOutA.addEventListener('click', signOutHandler) 
-			navigateTo('/')
-		})
-		.catch((error) => {
-			console.log("Sign in error:",error.message)
-			alert('You are not logged in')
-			navigateTo('/singIn')
-		});
-		
-		})
-	}
+          const signOutHandler = () => {
+            signOut(auth)
+              .then((e) => {
+                localStorage.clear();
+                console.log("Sign out:", "Success");
+                localStorage.clear();
+              })
+              .catch((error) => {
+                console.log("Sign out error:", error.message);
+              });
+          };
+          signOutA.addEventListener("click", signOutHandler);
+          navigateTo("/");
+        })
+        .catch((error) => {
+          console.log("Sign in error:", error.message);
+          alert("You are not logged in");
+          navigateTo("/singIn");
+        });
+    });
+  }
 
-    async getHtml() {
-        return `
+  async getHtml() {
+    return `
         <div class="intro">
 		<div class="container">
 			<div class="intro_inner">
@@ -89,5 +95,5 @@ export default class extends AbstractView {
 		</div>
 	</div>
         `;
-    }
+  }
 }

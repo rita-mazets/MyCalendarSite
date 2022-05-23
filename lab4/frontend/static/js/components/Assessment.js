@@ -11,7 +11,7 @@ export async function Assessment(){
 
     let innerDiscribeMood = ''
     let text = ''
-    if(data === '' || data === null || data === undefined || data === "null")
+    if(data === "null")
     {
         innerDiscribeMood = `
         <div class="sign_in pad">
